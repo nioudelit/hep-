@@ -38,8 +38,13 @@ void GUI(){
 }
 
 void bouton(){
-  fill(0, 40, 140);
+  if(thre){
+    fill(0, 40, 140);
+  } else {
+    fill(190, 120, 0);
+  }
   rect(640 + 50, 100, 20, 20);
+  //text("Appuie sur 't' pour activer effet threshold", 640 + 100, 100); 
 }
 
 boolean threshold(){
