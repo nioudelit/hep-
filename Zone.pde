@@ -26,7 +26,7 @@ class Zone{
   }
   
   //  affiche et copie la zone à analyser
-  void afficher(boolean threshold, int seuil){
+  void afficher(int seuil){
     copie.copy(camRetouchee, x, y, l, h, 0, 0, l, h);
     
     if(threshold == true){

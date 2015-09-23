@@ -34,4 +34,5 @@ void GUI(){
   cp5.addSlider("positionY")
       .setPosition(640 + 20, 150 +100)
       .setRange(0, 640);
+     
 }

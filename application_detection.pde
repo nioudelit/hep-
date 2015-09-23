@@ -32,6 +32,7 @@ float contrastou = 1;
 float PasseBas = 0.5; float DeriveePB = 0.3;
 int positionX; int positionY;
 float mouvementFondu; float mouvementFonduSuper;
+boolean threshold = false;
 
 void setup (){
   size(640 + 200, 480 + 150, P2D);
@@ -79,7 +80,7 @@ void draw() {
   rect(positionX/4 + 640+dec, positionY/4 +320, taille/4, taille/4);
   
   for(int i = 0; i < maZone.length; i++){
-    maZone[i].afficher(true, 127);
+    maZone[i].afficher(127);
     maZone[i].deplacer();
     maZone[i].frameDiff();
     maZone[i].retourMouvement(i+1);
