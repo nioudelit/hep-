@@ -29,7 +29,7 @@ class Zone{
   void afficher(int seuil){
     copie.copy(camRetouchee, x, y, l, h, 0, 0, l, h);
     
-    if(threshold == true){
+    if(threshold() == true){
       copie.loadPixels();
       for(int i = 0; i < copie.pixels.length; i++){
         if(brightness(copie.pixels[i]) < seuil){

@@ -36,3 +36,12 @@ void GUI(){
       .setRange(0, 640);
      
 }
+
+void bouton(){
+  fill(0, 40, 140);
+  rect(640 + 50, 100, 20, 20);
+}
+
+boolean threshold(){
+  return thre;
+}

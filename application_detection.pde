@@ -32,7 +32,7 @@ float contrastou = 1;
 float PasseBas = 0.5; float DeriveePB = 0.3;
 int positionX; int positionY;
 float mouvementFondu; float mouvementFonduSuper;
-boolean threshold = false;
+boolean thre = false;
 
 void setup (){
   size(640 + 200, 480 + 150, P2D);
@@ -87,12 +87,17 @@ void draw() {
     maZone[i].seuilBlanc();
   }
   //affiche un voyant pour vérifier si ça tient le coup
+  bouton();
   latence();
+  println(threshold());
 }
 
 void keyReleased(){
   if(key == ' '){
     new Zone(positionX, positionY, taille, taille, 255);
     //sons[0].play();
+  }
+  if(key == 't' || key == 'T'){
+    thre =! thre;
   }
 }
