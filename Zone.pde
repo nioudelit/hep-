@@ -140,8 +140,15 @@ class Zone{
   
   //envoi données noir et blanc en OSC
   void envoi(){
+    int nb = 0;
     OscMessage myMessage = new OscMessage("/hep");
-    myMessage.add(seuilBlanc());
+    if(seuilBlanc()){
+      nb = 1;
+    } else {
+      nb = 0;
+    }
+    
+    myMessage.add(nb);
     oscP5.send(myMessage, myRemoteLocation);
   }
   

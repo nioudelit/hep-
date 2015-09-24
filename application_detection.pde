@@ -45,7 +45,7 @@ void setup (){
   background(0);
   
   oscP5 = new OscP5(this, 9000);
-  myRemoteLocation = new NetAddress("192.168.1.126", 7000); //192.168.1.255    192.168.1.12
+  myRemoteLocation = new NetAddress("127.0.0.1", 7000); //192.168.1.255    192.168.1.12  127.0.0.1
   
   camRetouchee = new PImage(640, 480);
   
@@ -94,6 +94,7 @@ void draw() {
     maZone[i].frameDiff();
     maZone[i].retourMouvement(i+1);
     maZone[i].seuilBlanc();
+    maZone[i].envoi();
   }
   //affiche un voyant pour vérifier si ça tient le coup
   bouton();
