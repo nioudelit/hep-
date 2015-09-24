@@ -161,7 +161,7 @@ class Zone{
   //Affichage en bas des données reçu par les zones
   void retourMouvement(int i) {
     int posY = 465 + i * 15;
-    println("MOUVEMENT de L'OBJET " + i +"   " + retourConsole);
+    //println("MOUVEMENT de L'OBJET " + i +"   " + retourConsole);
     fill(0); noStroke();
     rect(0, posY, 220, 20);
     fill(255);

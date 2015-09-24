@@ -9,6 +9,9 @@
 
 import processing.video.*;
 import controlP5.*;
+import oscP5.*;
+import netP5.*;
+
 
 //Gestion des Zones de detection
 Zone[] maZone = new Zone[0];
@@ -89,7 +92,7 @@ void draw() {
   //affiche un voyant pour vérifier si ça tient le coup
   bouton();
   latence();
-  println(threshold());
+  //println(threshold());
 }
 
 void keyReleased(){
