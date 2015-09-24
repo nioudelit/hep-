@@ -12,6 +12,9 @@ import controlP5.*;
 import oscP5.*;
 import netP5.*;
 
+//OBJETS OSC
+OscP5 oscP5;
+NetAddress myRemoteLocation;
 
 //Gestion des Zones de detection
 Zone[] maZone = new Zone[0];
@@ -40,6 +43,9 @@ boolean thre = false;
 void setup (){
   size(640 + 200, 480 + 150, P2D);
   background(0);
+  
+  oscP5 = new OscP5(this, 9000);
+  myRemoteLocation = new NetAddress("192.168.1.126", 7000); //192.168.1.255    192.168.1.12
   
   camRetouchee = new PImage(640, 480);
   

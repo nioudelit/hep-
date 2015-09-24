@@ -137,9 +137,12 @@ class Zone{
       return false;
     }
   }
-  //  méthode pour activer action si moyenne luminosite d'une zone
-  //  dépasse une valeur supérieur à un seuil de noir donné
-  void seuilNoir(){
+  
+  //envoi données noir et blanc en OSC
+  void envoi(){
+    OscMessage myMessage = new OscMessage("/hep");
+    myMessage.add(seuilBlanc());
+    oscP5.send(myMessage, myRemoteLocation);
   }
   
   //renvoie si la zone contient du mouyvement
