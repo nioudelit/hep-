@@ -8,7 +8,7 @@ void GUI(){
   cp5 = new ControlP5(this);
   cp5.addSlider("contrastou")
       .setPosition(640 + 20, 30 +100)
-      .setRange(0, 15);
+      .setRange(0, 9);
       
   cp5 = new ControlP5(this);
   cp5.addSlider("PasseBas")

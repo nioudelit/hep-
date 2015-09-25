@@ -141,7 +141,7 @@ class Zone{
     }
   }
   
-  boolean seuilRouge(){
+  boolean seuilRouge(float marge){
     for(int i = 0; i < copie.pixels.length; i++){
       color brute = copie.pixels[i];
       tauxRouge += (brute >> 16) & 0xFF;
@@ -152,7 +152,7 @@ class Zone{
     tauxVert = tauxVert / copie.pixels.length;
     tauxBleu = tauxBleu / copie.pixels.length;
     
-    if(tauxRouge > 140 && tauxVert < 100 && tauxBleu < 100){
+    if(tauxRouge > 120 * marge && tauxVert < 80 * marge && tauxBleu < 100 * marge){
       println("Rouge!");
       return true;
       

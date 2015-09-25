@@ -97,7 +97,7 @@ void draw() {
     maZone[i].frameDiff();
     maZone[i].retourMouvement(i+1);
     maZone[i].seuilBlanc();
-    maZone[i].seuilRouge();
+    maZone[i].seuilRouge(1);
     maZone[i].envoi(i);
   }
   //affiche un voyant pour vérifier si ça tient le coup
