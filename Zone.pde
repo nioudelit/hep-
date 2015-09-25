@@ -152,7 +152,7 @@ class Zone{
     tauxVert = tauxVert / copie.pixels.length;
     tauxBleu = tauxBleu / copie.pixels.length;
     
-    if(tauxRouge > 120 * marge && tauxVert < 80 * marge && tauxBleu < 100 * marge){
+    if(tauxRouge > 140 * marge && tauxVert < 80 * marge && tauxBleu < 90 * marge){
       println("Rouge!");
       return true;
       
