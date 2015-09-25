@@ -38,6 +38,7 @@ PImage gris;
 int taille = 50;
 int seuilBruit = 10;
 float contrastou = 1;
+float lux;
 float PasseBas = 0.5; float DeriveePB = 0.3;
 int positionX; int positionY;
 float mouvementFondu; float mouvementFonduSuper;
@@ -81,7 +82,7 @@ void draw() {
   }
   
   float contrast = contrastou;
-  contrasteLumino(cam, camRetouchee, contrast, 1);
+  contrasteLumino(cam, camRetouchee, contrast, lux);
   image(camRetouchee, 0, 0);
   //filter(GRAY);
   //image(cam, 0, 0);

@@ -10,6 +10,11 @@ void GUI(){
       .setPosition(640 + 20, 30 +100)
       .setRange(0, 9);
       
+   cp5 = new ControlP5(this);
+   cp5.addSlider("lux")
+      .setPosition(640 + 60, 30 +110)
+      .setRange(-100, 100);
+      
   cp5 = new ControlP5(this);
   cp5.addSlider("PasseBas")
       .setPosition(640 + 20, 70 +100)
