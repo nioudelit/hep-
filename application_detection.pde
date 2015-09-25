@@ -35,7 +35,7 @@ int posX = 60;
 PImage gris;
 
 //GUI
-int taille = 100;
+int taille = 50;
 int seuilBruit = 10;
 float contrastou = 1;
 float PasseBas = 0.5; float DeriveePB = 0.3;
@@ -48,7 +48,7 @@ void setup (){
   background(0);
   
   oscP5 = new OscP5(this, 9000);
-  myRemoteLocation = new NetAddress("127.0.0.1", 7000); //192.168.1.255    192.168.1.12  127.0.0.1
+  myRemoteLocation = new NetAddress("127.0.0.1", 7000); 
   
   camRetouchee = new PImage(640, 480);
   

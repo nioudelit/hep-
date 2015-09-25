@@ -141,7 +141,6 @@ class Zone{
   //envoi données noir et blanc en OSC
   void envoi(int i){
     String si = str(i);
-    
     int nb = 0;
     OscMessage myMessage = new OscMessage(si);
     if(seuilBlanc()){

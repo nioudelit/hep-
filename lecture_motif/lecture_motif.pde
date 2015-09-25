@@ -5,43 +5,76 @@ import netP5.*;
 OscP5 oscP5;
 
 float positionX, positionY;
-int hi;
-int ha;
+
+int a;
+int b;
+int c;
+int d;
 
 void setup() {
-  size(600, 600);
+  size(400, 400);
   oscP5 = new OscP5(this, 7000);
   
   positionX = width/2;
   positionY = height/2;
 
-  noStroke();
+  
 }
  
 void draw() {
-  background(255);
+  background(120);
   smooth();
-
-  if(hi == 1){
-    fill(255,255,0);
+  
+  noStroke();
+  if(a == 1){
+    fill(255);
   } else {
     fill(0);
   }
-  ellipse(positionX, positionY, 20, 20);
-  
-  if(ha == 1){
-    fill(255, 0, 0);
+  rect(0, 0, width/2, height/2);
+  ///////
+  if(b == 1){
+    fill(255);
   } else {
-    fill(0, 0, 255);
+    fill(0);
   }
-  rect(100, 100, 100, 100);
+  rect(width/2, 0, width/2, height/2);
+  ////////
+  if(c == 1){
+    fill(255);
+  } else {
+    fill(0);
+  }
+  rect(0, height/2, width/2, height/2);
+  ////////
+  if(d == 1){
+    fill(255);
+  } else {
+    fill(0);
+  }
+  rect(width/2, height/2, width/2, height/2);
+  ////////
+  
+  reperes();
 }
 
 void oscEvent(OscMessage theOscMessage) {
   if (theOscMessage.checkAddrPattern("0")==true) {
-    hi = theOscMessage.get(0).intValue();
+    a = theOscMessage.get(0).intValue();
   }
   if (theOscMessage.checkAddrPattern("1")==true) {
-    ha = theOscMessage.get(0).intValue();
+    b = theOscMessage.get(0).intValue();
   }
+  if (theOscMessage.checkAddrPattern("2")==true) {
+    c = theOscMessage.get(0).intValue();
+  }
+  if (theOscMessage.checkAddrPattern("3")==true) {
+    d = theOscMessage.get(0).intValue();
+  }
+}
+
+void reperes(){
+  stroke(255, 255, 0);
+  line(width/2, 0, width/2, height);
+  line(0, height/2, width, height/2);
 }
