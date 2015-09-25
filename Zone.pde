@@ -6,7 +6,10 @@ class Zone{
   float retourConsole;
   int[] previousFrame;
   boolean mouvementAvere = false;
-  float tauxGris;
+  float tauxGris; 
+  float tauxRouge;
+  float tauxBleu;
+  float tauxVert;
   float tauxThre;
   
   
@@ -134,6 +137,27 @@ class Zone{
       return true;
       //println("BLANC! HoURRA!!!"); println("BLANC! HoURRA!!!");
     } else {
+      return false;
+    }
+  }
+  
+  boolean seuilRouge(){
+    for(int i = 0; i < copie.pixels.length; i++){
+      color brute = copie.pixels[i];
+      tauxRouge += (brute >> 16) & 0xFF;
+      tauxVert += (brute >> 8) & 0xFF;
+      tauxBleu += brute & 0xFF;
+    }
+    tauxRouge = tauxRouge / copie.pixels.length;
+    tauxVert = tauxVert / copie.pixels.length;
+    tauxBleu = tauxBleu / copie.pixels.length;
+    
+    if(tauxRouge > 140 && tauxVert < 100 && tauxBleu < 100){
+      println("Rouge!");
+      return true;
+      
+    } else {
+      println("pasrouge");
       return false;
     }
   }

@@ -18,7 +18,6 @@ void setup() {
   positionX = width/2;
   positionY = height/2;
 
-  
 }
  
 void draw() {

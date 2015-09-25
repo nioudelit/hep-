@@ -83,7 +83,7 @@ void draw() {
   float contrast = contrastou;
   contrasteLumino(cam, camRetouchee, contrast, 1);
   image(camRetouchee, 0, 0);
-  filter(GRAY);
+  //filter(GRAY);
   //image(cam, 0, 0);
   
   image(cam, 640 + dec, 320, cam.width/4, cam.height/4);
@@ -97,6 +97,7 @@ void draw() {
     maZone[i].frameDiff();
     maZone[i].retourMouvement(i+1);
     maZone[i].seuilBlanc();
+    maZone[i].seuilRouge();
     maZone[i].envoi(i);
   }
   //affiche un voyant pour vérifier si ça tient le coup
