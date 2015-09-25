@@ -7,6 +7,9 @@
 //4. faire design interface en orientee objet (pour text et ergo)
 //5. commenter pour modifier plus facilement
 
+
+//A FAIRE: RENVOYER : Numéro de l'objet + boolean noir/blanc
+
 import processing.video.*;
 import controlP5.*;
 import oscP5.*;
@@ -94,7 +97,7 @@ void draw() {
     maZone[i].frameDiff();
     maZone[i].retourMouvement(i+1);
     maZone[i].seuilBlanc();
-    maZone[i].envoi();
+    maZone[i].envoi(i);
   }
   //affiche un voyant pour vérifier si ça tient le coup
   bouton();
