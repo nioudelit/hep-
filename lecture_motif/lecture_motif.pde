@@ -71,7 +71,7 @@ void draw() {
   ////////
   
   reperes();
-  println(player[0].position());
+  //println(player[0].position());
   
   if(ma == 1){
     ok = true;

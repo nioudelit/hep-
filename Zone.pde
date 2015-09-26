@@ -172,7 +172,6 @@ class Zone{
     } else {
       nb = 0;
     }
-    
     myMessage.add(nb);
     myMessage.add(declencherSource());
     oscP5.send(myMessage, myRemoteLocation);
