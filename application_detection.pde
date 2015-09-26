@@ -111,7 +111,6 @@ void draw() {
 void keyReleased(){
   if(key == ' '){
     new Zone(positionX, positionY, taille, taille, 255);
-    //sons[0].play();
   }
   if(key == 't' || key == 'T'){
     thre =! thre;
