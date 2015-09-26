@@ -1,15 +1,3 @@
-//Prototype application de mapping d'actions
-//frame differencing et taux luminosité
-//1. gerer importation fichier
-//2. lecture de ces fichiers avec une touche
-//3. assignation de ces fichiers sur les zones (lien ou interface)
-// epurer le code:
-//4. faire design interface en orientee objet (pour text et ergo)
-//5. commenter pour modifier plus facilement
-
-
-//A FAIRE: RENVOYER : Numéro de l'objet + boolean noir/blanc
-
 import processing.video.*;
 import controlP5.*;
 import oscP5.*;
@@ -106,14 +94,22 @@ void draw() {
   bouton();
   latence();
   //println(threshold());
+  
   OscMessage myMessage = new OscMessage("nbrObj");
   myMessage.add(maZone.length);
   oscP5.send(myMessage, myRemoteLocation);
 }
 
 void keyReleased(){
+  int impulsion = 0;
   if(key == ' '){
+    impulsion = 1;
     new Zone(positionX, positionY, taille, taille, 255);
+    OscMessage myMessage = new OscMessage("impulsion");
+    myMessage.add(impulsion);
+    oscP5.send(myMessage, myRemoteLocation);
+  } else {
+    impulsion = 0;
   }
   if(key == 't' || key == 'T'){
     thre =! thre;

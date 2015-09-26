@@ -7,10 +7,14 @@ import ddf.minim.*;
 
 OscP5 oscP5;
 Minim minim;
-Sortie sortie;
+AudioPlayer[] player = new AudioPlayer[4];
+
+int nbrSortie;
+Sortie[] sortie = new Sortie[4];
 
 float positionX, positionY;
 int nombreObjets;
+int impulsion;
 
 int[] binaire = new int[12]; // Renvoi information couleur (noir ou blanc)
 int[] bouge = new int[12]; // renvoi si ça bouge ou non
@@ -21,8 +25,14 @@ void setup() {
   size(400, 400);
   oscP5 = new OscP5(this, 7000);
   minim = new Minim(this);
+  for(int i = 0; i < player.length; i++){
+    player[i] = minim.loadFile("z" + i + ".wav");
+  }
   
-  sortie = new Sortie();
+  for(int i = 0; i < sortie.length; i++){
+    sortie[i] = new Sortie();
+  }
+  println(sortie.length);
   
   positionX = width/2;
   positionY = height/2;
@@ -33,14 +43,21 @@ void draw() {
   background(120);
   smooth();
   reperes();
-  sortie.identifiant(0);
-  sortie.dessiner(20);
-  sortie.jouerSon();
+  println("Nombre  obj " + nombreObjets);
+  
+  for(int i = 0; i < sortie.length; i++){
+    sortie[i].identifiant(i);
+    sortie[i].dessiner(i);
+    sortie[i].jouerSon();
+  }
 }
 
 void oscEvent(OscMessage theOscMessage) {
-  if((theOscMessage.checkAddrPattern("nbrObj") == true) {
+  if(theOscMessage.checkAddrPattern("nbrObj") == true) {
     nombreObjets = theOscMessage.get(0).intValue();
+  }
+  if(theOscMessage.checkAddrPattern("impulsion") == true) {
+    impulsion = theOscMessage.get(0).intValue();
   }
   for(int i = 0; i < nombreObjets; i++){
     if (theOscMessage.checkAddrPattern(str(i)) == true) {

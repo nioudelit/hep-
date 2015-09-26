@@ -153,11 +153,11 @@ class Zone{
     tauxBleu = tauxBleu / copie.pixels.length;
     
     if(tauxRouge > 140 * marge && tauxVert < 80 * marge && tauxBleu < 90 * marge){
-      println("Rouge!");
+      //println("Rouge!");
       return true;
       
     } else {
-      println("pasrouge");
+      //println("pasrouge");
       return false;
     }
   }
@@ -180,7 +180,7 @@ class Zone{
   //renvoie si la zone contient du mouyvement
   int declencherSource(){
     if(mouvementAvere){
-      println("MOUVEMENT MEC");
+      //println("MOUVEMENT MEC");
       return 1;
     } else {
       return 0;
