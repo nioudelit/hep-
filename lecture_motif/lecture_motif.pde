@@ -49,9 +49,6 @@ void oscEvent(OscMessage theOscMessage) {
   if(theOscMessage.checkAddrPattern("nbrObj") == true) {
     nombreObjets = theOscMessage.get(0).intValue();
   }
-  if(theOscMessage.checkAddrPattern("impulsion") == true) {
-    impulsion = theOscMessage.get(0).intValue();
-  }
   for(int i = 0; i < nombreObjets; i++){
     if (theOscMessage.checkAddrPattern(str(i)) == true) {
       binaire[i] = theOscMessage.get(0).intValue(); // couleur NB
