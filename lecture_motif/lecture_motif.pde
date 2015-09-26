@@ -11,6 +11,8 @@ int b;
 int c;
 int d;
 
+int ma;
+
 void setup() {
   size(400, 400);
   oscP5 = new OscP5(this, 7000);
@@ -55,11 +57,16 @@ void draw() {
   ////////
   
   reperes();
+  
+  if(ma == 1){
+    println("Mouvement !");
+  }
 }
 
 void oscEvent(OscMessage theOscMessage) {
   if (theOscMessage.checkAddrPattern("0")==true) {
     a = theOscMessage.get(0).intValue();
+    ma = theOscMessage.get(1).intValue();
   }
   if (theOscMessage.checkAddrPattern("1")==true) {
     b = theOscMessage.get(0).intValue();

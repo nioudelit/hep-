@@ -174,15 +174,17 @@ class Zone{
     }
     
     myMessage.add(nb);
+    myMessage.add(declencherSource());
     oscP5.send(myMessage, myRemoteLocation);
   }
   
   //renvoie si la zone contient du mouyvement
-  boolean declencherSource(){
+  int declencherSource(){
     if(mouvementAvere){
-      return true;
+      println("MOUVEMENT MEC");
+      return 1;
     } else {
-      return false;
+      return 0;
     }
   }
   
