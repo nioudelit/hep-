@@ -106,6 +106,9 @@ void draw() {
   bouton();
   latence();
   //println(threshold());
+  OscMessage myMessage = new OscMessage("nbrObj");
+  myMessage.add(maZone.length);
+  oscP5.send(myMessage, myRemoteLocation);
 }
 
 void keyReleased(){

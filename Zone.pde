@@ -6,12 +6,12 @@ class Zone{
   float retourConsole;
   int[] previousFrame;
   boolean mouvementAvere = false;
+  
   float tauxGris; 
   float tauxRouge;
   float tauxBleu;
   float tauxVert;
   float tauxThre;
-  
   
   Zone(int X, int Y, int L, int H, int afficherCarre){
     x = X;
