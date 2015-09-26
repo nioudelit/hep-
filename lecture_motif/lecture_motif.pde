@@ -12,9 +12,7 @@ AudioPlayer[] player = new AudioPlayer[4];
 int nbrSortie;
 Sortie[] sortie = new Sortie[4];
 
-float positionX, positionY;
 int nombreObjets;
-int impulsion;
 
 int[] binaire = new int[12]; // Renvoi information couleur (noir ou blanc)
 int[] bouge = new int[12]; // renvoi si ça bouge ou non
@@ -32,11 +30,6 @@ void setup() {
   for(int i = 0; i < sortie.length; i++){
     sortie[i] = new Sortie();
   }
-  println(sortie.length);
-  
-  positionX = width/2;
-  positionY = height/2;
-
 }
  
 void draw() {

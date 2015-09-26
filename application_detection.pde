@@ -101,15 +101,8 @@ void draw() {
 }
 
 void keyReleased(){
-  int impulsion = 0;
   if(key == ' '){
-    impulsion = 1;
     new Zone(positionX, positionY, taille, taille, 255);
-    OscMessage myMessage = new OscMessage("impulsion");
-    myMessage.add(impulsion);
-    oscP5.send(myMessage, myRemoteLocation);
-  } else {
-    impulsion = 0;
   }
   if(key == 't' || key == 'T'){
     thre =! thre;
