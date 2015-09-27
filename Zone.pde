@@ -85,10 +85,19 @@ class Zone{
       color present = copie.pixels[i];
       color passe = previousFrame[i];
       
-      float lumPresent = brightness(present);
-      float lumPasse = brightness(passe);
+//      float lumPresent = brightness(present);
+//      float lumPasse = brightness(passe);
+
+      color rougePresent = (present >> 16)& 0xFF;
+      color vertPresent = (present >> 8)& 0xFF;
+      color bleuPresent = present & 0xFF;
       
-      float diff = dist(lumPresent, lumPresent, lumPasse, lumPasse);
+      color rougePasse = (passe >> 16) & 0xFF;
+      color vertPasse = (passe >> 8) & 0xFF;
+      color bleuPasse = passe & 0xFF;
+      
+      //float diff = dist(lumPresent, lumPresent, lumPasse, lumPasse);
+      float diff = dist(rougePresent, vertPresent, bleuPresent, rougePasse, vertPasse, bleuPasse);
       //diffFiltre = (1 - PasseBas) * diff + (PasseBas * diffFiltre);
       
       if(diff < seuilBruit){
@@ -128,11 +137,12 @@ class Zone{
     for(int i = 0; i < copie.pixels.length; i++){
       color brute = copie.pixels[i];
       //tauxGris += brightness(brute);
-      //tauxGris += (brute >> 16) & 0xFF;
-      //tauxGris += (brute >> 8) & 0xFF;
+      tauxGris += (brute >> 16) & 0xFF;
+      tauxGris += (brute >> 8) & 0xFF;
       tauxGris += brute & 0xFF;
     }
-    tauxGris = tauxGris / copie.pixels.length;
+    tauxGris = (tauxGris / copie.pixels.length) / 3;
+    //println("TAUXGRIS" + tauxGris);
     if(tauxGris > 127){
       return true;
       //println("BLANC! HoURRA!!!"); println("BLANC! HoURRA!!!");

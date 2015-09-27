@@ -27,25 +27,34 @@ class Sortie{
       fill(0);
     }
     rect(x * 20, 0, 20, 20);
-    println(id);
-    println(nb + "        " + mouvement);
+    //println(id);
+    //println(nb + "        " + mouvement);
+    println("Sonn    " + player[int(id)].length());
   }
   
   void jouerSon(){
     if(nombreObjets >= 1){
+      //Si il y a du mouvement, on ouvre le "ok"
       if(mouvement == 1){
         println("YES");
         ok = true;
       }
+      //si le ok est ouvert: on peut jouer le son.
       if(ok){
         player[int(id)].play();
       }
-      if(player[int(id)].position() >= player[int(id)].length()){
+      //si on arrive à la fin du son, on rembobine et on remet le curseur sur 0.
+      if(player[int(id)].position() == player[int(id)].length()){
         ok = false;
         player[int(id)].rewind();
       }
+      //si le son est en train de se jouer, on ferme le "ok" pour empecher que le son se superpose
       if(player[int(id)].isPlaying()){
         ok = false;
+      } else {
+        if(mouvement == 1){
+          ok = true;
+        }
       }
     }
   }
