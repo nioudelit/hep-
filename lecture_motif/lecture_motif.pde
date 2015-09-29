@@ -41,7 +41,7 @@ void draw() {
   background(120);
   smooth();
   reperes();
-  println("Nombre  obj " + nombreObjets);
+  //println("Nombre  obj " + nombreObjets);
   
   for(int i = 0; i < sortie.length; i++){
     sortie[i].identifiant(i);

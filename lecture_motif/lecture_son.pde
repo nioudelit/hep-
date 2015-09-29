@@ -6,10 +6,6 @@ class Sortie{
   int mouvement;
   
   Sortie(){
-//    if(nombreObjets >= 1){
-//      player = minim.loadFile("z" + str(nombreObjets - 1) + ".wav");
-//      //println("mon fichier = z" + str(nombreObjets-1) + ".wav");
-//    }
   }
   
   String identifiant(int i){
@@ -29,7 +25,7 @@ class Sortie{
     rect(x * 20, 0, 20, 20);
     //println(id);
     //println(nb + "        " + mouvement);
-    println("Sonn    " + player[int(id)].length());
+    //println("Sonn    " + player[int(id)].length());
   }
   
   void jouerSon(){
