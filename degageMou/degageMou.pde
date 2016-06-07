@@ -1,27 +1,27 @@
+import ddf.minim.*;
+import ddf.minim.analysis.*;
+import ddf.minim.effects.*;
 // A RECUPERER: numéro objet (de 1 à 4) et boolean de chacun
 import oscP5.*;
 import netP5.*;
-import ddf.minim.spi.*;
-import ddf.minim.signals.*;
-import ddf.minim.*;
 
-int nombreSorties = 5;
-
+int nombreSorties = 16;
 OscP5 oscP5;
 Minim minim;
 AudioPlayer[] player = new AudioPlayer[nombreSorties];
+AudioPlayer[] poirot = new AudioPlayer[16];
 
-int nbrSortie;
-Sortie[] sortie = new Sortie[nombreSorties];
+//int nbrSortie;
+Sortie[] sortie = new Sortie[nombreSorties]; //EFFET
 
 int nombreObjets;
+//RECUPERE OSC 
+int[] binaire = new int[nombreSorties]; // Renvoi information couleur (noir ou blanc)
+int[] bouge = new int[nombreSorties]; // renvoi si ça bouge ou non
 
-int[] binaire = new int[12]; // Renvoi information couleur (noir ou blanc)
-int[] bouge = new int[12]; // renvoi si ça bouge ou non
-
-boolean ok = false;
+boolean ok = false;//POUR EMPECHER DE JOUER PLUSIEURS SON EN MM TEMPS
 boolean validation = true; //PENSER A REPASSER EN TRUE
-int signature = 0;
+int signature = 0;//POUR LECTURE MOTIF… OSEF
 
 void setup() {
   size(400, 400);
@@ -30,9 +30,12 @@ void setup() {
   for(int i = 0; i < player.length - 2; i++){
     player[i] = minim.loadFile("z" + i + ".wav");
   }
-  
   player[3] = minim.loadFile("z4.mp3");
   player[4] = minim.loadFile("z5.mp3");
+  
+  for(int i = 0; i < poirot.length; i++){
+    poirot[i] = minim.loadFile(i + ".wav");
+  }
   
   for(int i = 0; i < sortie.length; i++){
     sortie[i] = new Sortie();
@@ -41,18 +44,20 @@ void setup() {
  
 void draw() {
   background(120);
-  smooth();
-  reperes();
+  //reperes();
   //println("Nombre  obj " + nombreObjets);
   
   for(int i = 0; i < sortie.length; i++){
     sortie[i].identifiant(i);
     sortie[i].dessiner(i);
-    sortie[i].jouerSon();
+    if(sortie[i].enLecture() == false){  
+      sortie[i].jouerAnimation();
+    }
   }
-  alphabet();
+  //alphabet();
 }
 
+//RECUPERE INFO (BOUGE OU NB?)
 void oscEvent(OscMessage theOscMessage) {
   if(theOscMessage.checkAddrPattern("nbrObj") == true) {
     nombreObjets = theOscMessage.get(0).intValue();
