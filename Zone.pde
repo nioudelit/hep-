@@ -184,6 +184,8 @@ class Zone{
     }
     myMessage.add(nb);
     myMessage.add(declencherSource());
+    println(retourConsole);
+    myMessage.add(retourConsole);
     oscP5.send(myMessage, myRemoteLocation);
   }
   

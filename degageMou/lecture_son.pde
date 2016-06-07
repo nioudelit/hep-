@@ -5,6 +5,7 @@ class Sortie {
 
   int nb;
   int mouvement;
+  int tauxM;
 
   Sortie() {
   }
@@ -17,6 +18,7 @@ class Sortie {
   void recupereOSCCorrespondant() {
     nb = binaire[int(id)];//SI MOUMOU RENVOI N ou B
     mouvement = bouge[int(id)];
+    //tauxM = tauxMouv[int(id)];
   }
 
   //RENVOIE MOTIF
@@ -27,6 +29,7 @@ class Sortie {
 
     nb = binaire[int(id)];//SI MOUMOU RENVOI N ou B
     mouvement = bouge[int(id)];
+    println(id, tauxM);
 
     if (nb == 1) { // BLANC
       fill(255);
@@ -55,8 +58,10 @@ class Sortie {
 
   boolean enLecture() {
     if (poirot[int(id)].isPlaying()) {
+      //cursor = int(id);
       return true;
     } else {
+      //cursor = 0;
       return false;
     }
   }
@@ -91,10 +96,18 @@ class Sortie {
   void jouerVideo() {
   }
 
-  void jouerAnimation() {
+  void jouerAnimation(int c) {
+    poirot[c].loop(1);
+  }
+
+  boolean mouvementAvere() {
     if (nombreObjets >= 1) {
-      //Si il y a du mouvement, on ouvre le "ok"
-      
-    }
+      if (mouvement == 1) {
+        return true;
+      } else {
+        return false;
+      }
+    } 
+    return false;
   }
 }
